@@ -18,7 +18,6 @@ export default function Model({ messages, setModel }) {
                     <input value={messages?.author.login} readOnly></input>
                 </div>
             </div>
-            <br />
             <div className="model-mini-container">
                 <div className="model-values">
                     <label>Subject:</label><br />
@@ -30,7 +29,6 @@ export default function Model({ messages, setModel }) {
                     <textarea value={messages?.body} readOnly></textarea>
                 </div>
             </div>
-            <br />
             <div className="model-mini-container">
                 <div className="model-values">
                     <label>Language:</label><br />
@@ -42,12 +40,13 @@ export default function Model({ messages, setModel }) {
                     <input value={messages?.metrics.views} readOnly></input>
                 </div>
             </div>
-            <br />
             <div className="model-mini-container">
                 <div className="model-values">
                     <label>Link:</label><br />
-                    <textarea value={messages?.view_href} readOnly></textarea>
-                    {/* <a href={messages?.view_href}>{messages?.view_href}</a> */}
+                    {/* <textarea value={messages?.view_href} readOnly></textarea> */}
+                    <div className="message-link">
+                        <a href={messages?.view_href} target="_blank">{messages?.view_href}</a>
+                    </div>
                 </div>
 
                 <div className="model-values">
@@ -55,10 +54,8 @@ export default function Model({ messages, setModel }) {
                     <textarea value={messages?.post_time} readOnly></textarea>
                 </div>
             </div>
-
-            <br />
             <div className="button">
-                <button onClick={() => setModel({ boolean: false })} className="back-button">Back</button>
+                <button onClick={() => setModel({ boolean: false })} className="back-button">Close</button>
             </div>
         </div>
     )
