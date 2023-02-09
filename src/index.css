@@ -44,7 +44,7 @@ code {
 
 .model-mini-container {
   display: flex;
-  align-items: center;
+  align-items: start;
   margin-bottom: 10px;
   justify-content: space-between;
 }
