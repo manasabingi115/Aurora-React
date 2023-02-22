@@ -33,7 +33,7 @@ function App() {
     }
   }`;
 
-// adding readmore and readless for long texts
+  // adding readmore and readless for long texts
   const ReadMore = ({ prop }) => {
     const text = prop;
     const [isReadMore, setIsReadMore] = React.useState(true);
@@ -50,7 +50,7 @@ function App() {
     );
   };
 
-// displaying messages
+  // displaying messages
   function DisplayMessages() {
     const { loading, error, data } = useQuery(GET_MESSAGES);
     // console.log(data, error, "graphql");
@@ -59,26 +59,28 @@ function App() {
     if (error) return <p>Error : {error.message}</p>;
 
     return (
-      <div className="messages-container">
-        {data.messages.items?.map((message, index) =>
-          <div key={index} className="message">
-            <p><strong>id:  </strong>{message.id}</p>
-            <p><strong>subject:  </strong>{message.subject}</p>
-            <div><strong>body:  </strong>
-              {message.body.length >= 150 ? <ReadMore prop={message.body} /> : message.body}
+      <div className="container">
+        <div className="messages-container">
+          {data.messages.items?.map((message, index) =>
+            <div key={index} className="message">
+              <p><strong>id:  </strong>{message.id}</p>
+              <p><strong>subject:  </strong>{message.subject}</p>
+              <div><strong>body:  </strong>
+                {message.body.length >= 150 ? <ReadMore prop={message.body} /> : message.body}
+              </div>
+              <div className="button">
+                <button onClick={() => setModel({
+                  boolean: true,
+                  messageId: message.id
+                })}
+                >View More...</button>
+              </div>
             </div>
-            <div className="button">
-              <button onClick={() => setModel({
-                boolean: true,
-                messageId:  message.id 
-              })}
-              >View More...</button>
-            </div>
-          </div>
-        )}
-        <br />
-        {model.boolean ? <Model id={model.messageId} setModel={setModel}/> : null}
-        <br />
+          )}
+          <br />
+          <br />
+        </div>
+        {model.boolean ? <Model id={model.messageId} setModel={setModel} /> : null}
       </div>
     )
   }

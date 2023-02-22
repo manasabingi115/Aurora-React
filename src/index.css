@@ -22,7 +22,7 @@ code {
 }
 
 .message {
-  width: 50%;
+  width: 80%;
   padding: 20px;
   border-radius: 30px;
   margin-bottom: 30px;
@@ -34,7 +34,7 @@ code {
   color: white;
   position: fixed;
   margin-top: 80px;
-  top: 30px;
+  top: 20px;
   padding: 30px 50px;
   right: 30px;
   width: 30%;
@@ -90,8 +90,17 @@ button {
   font-weight: bold;
 }
 
+.container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 115px;
+}
+
 .messages-container {
-  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
 }
 
 .header {
@@ -104,9 +113,6 @@ button {
   padding: 5px;
 }
 
-.messages-container {
-  padding: 125px;
-}
 
 .read-or-hide {
   color: royalblue;
@@ -118,6 +124,21 @@ button {
   word-wrap: break-word;
 }
 
-.message-link >a{
+.message-link>a {
   color: rgb(191, 246, 249);
+}
+
+.button-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media screen and (min-width: 900px) {
+  .model {
+    position: absolute;
+  }
+  .model-mini-container{
+    display: unset;
+  }
 }
